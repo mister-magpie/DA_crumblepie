@@ -54,6 +54,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Run update agent
+        id: agent
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -63,3 +64,12 @@ jobs:
             Read AGENT.md and follow it exactly. Today is the date reported by `date +%F`.
           claude_args: >-
             --allowedTools "Read,Write,Edit,Glob,Grep,WebFetch,WebSearch,Bash(git:*),Bash(python3:*),Bash(date:*),Bash(curl:*),Bash(mkdir:*),Bash(ls:*)"
+
+      # Print only the agent's final result message (not the full transcript), so a
+      # failure such as a login error is readable in the job log.
+      - name: Show agent result
+        if: always()
+        run: |
+          f="${{ steps.agent.outputs.execution_file }}"
+          [ -f "$f" ] || f="$RUNNER_TEMP/claude-execution-output.json"
+          [ -f "$f" ] && jq -r '[.[] | select(.type == "result")] | last | "is_error: \(.is_error)\nresult: \(.result)"' "$f" || echo "No execution file found"
