@@ -16,6 +16,7 @@
     input { flex: 1 1 220px; }
     .call { border-top:1px solid var(--line); padding:12px 0; }
     .call a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .meta a { color: var(--accent); text-decoration: none; }
     .tags { color: var(--muted); font-size: .9rem; }
     .deadline { font-variant-numeric: tabular-nums; }
   </style>
@@ -23,7 +24,7 @@
 <body>
 <main>
   <h1>Funding Call Tracker</h1>
-  <div class="meta" id="meta">Loading…</div>
+  <div class="meta"><span id="meta">Loading…</span> · <a href="sources.html" style="font-weight:normal">Sources</a></div>
   <div class="filters">
     <input id="q" type="search" placeholder="Search title, funder, topic…">
     <select id="region"><option value="">All regions</option><option value="SE">Sweden</option><option value="EU">EU</option></select>

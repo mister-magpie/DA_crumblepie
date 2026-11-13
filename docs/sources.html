@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sources · Funding Call Tracker</title>
+  <style>
+    :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e3e3e3; --accent:#2457c5; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#141414; --fg:#eee; --muted:#999; --line:#333; --accent:#7aa2ff; } }
+    body { margin:0; padding:24px 16px; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, sans-serif; }
+    main { max-width: 960px; margin: 0 auto; }
+    h1 { margin: 0 0 4px; font-size: 1.6rem; }
+    h2 { font-size: 1.1rem; margin: 24px 0 0; }
+    .meta, .notes, .links { color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+    .src { border-top:1px solid var(--line); padding:12px 0; }
+    .src b { font-weight: 600; }
+    .notes { font-size: .9rem; }
+    .badge { font-size:.8rem; border:1px solid var(--line); border-radius:10px; padding:0 8px; color:var(--muted); margin-left:6px; }
+  </style>
+</head>
+<body>
+<main>
+  <p><a href="./">← Back to calls</a></p>
+  <h1>Sources</h1>
+  <div class="meta" id="meta">Loading…</div>
+  <div id="list"></div>
+</main>
+<script>
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  Promise.all([fetch('data/sources.json').then(r => r.json()), fetch('data/calls.json').then(r => r.json())]).then(([s, c]) => {
+    const calls = c.calls || [];
+    const count = n => n.startsWith('EU Funding') ? calls.filter(x => x.source === 'api').length : calls.filter(x => x.source !== 'api' && x.funder && (n.includes(x.funder) || x.funder.includes(n.split(' (')[0]))).length;
+    const groups = { SE: 'Sweden', EU: 'EU' };
+    document.getElementById('meta').textContent = `${s.sources.length} funders checked · calls data updated ${c.updated}. Sources are listed in sources.yaml in the repository.`;
+    document.getElementById('list').innerHTML = Object.entries(groups).map(([k, label]) => {
+      const rows = s.sources.filter(x => x.region === k);
+      return `<h2>${label}</h2>` + rows.map(x => `
+        <div class="src">
+          <b>${esc(x.name)}</b><span class="badge">${count(x.name)} call${count(x.name) === 1 ? '' : 's'}</span>${x.verify ? '<span class="badge">URL to verify</span>' : ''}
+          <div class="links"><a href="${esc(x.listing)}" target="_blank" rel="noopener">Call listing</a>${x.api ? ' · API: <code>' + esc(x.api.split('?')[0]) + '</code>' : ''}</div>
+          ${x.notes ? `<div class="notes">${esc(x.notes)}</div>` : ''}
+        </div>`).join('');
+    }).join('');
+  }).catch(() => { document.getElementById('meta').textContent = 'Could not load data.'; });
+</script>
+</body>
+</html>

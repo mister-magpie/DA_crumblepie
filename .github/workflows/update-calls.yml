@@ -99,8 +99,9 @@ jobs:
         if: always()
         run: |
           git checkout -- logs sources.yaml 2>/dev/null || true
+          python3 scripts/build_sources.py
           if git diff --quiet -- docs/data/calls.json; then echo "Nothing left to commit"; exit 0; fi
           python3 scripts/validate.py || { echo "::error::calls.json invalid, not committing"; exit 1; }
-          git add docs/data/calls.json
+          git add docs/data/calls.json docs/data/sources.json
           git commit -m "data: update EU portal calls $(date +%F)"
           git pull --rebase origin main && git push origin main
