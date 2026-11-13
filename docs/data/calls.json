@@ -2,19 +2,222 @@
   "updated": "2026-11-13",
   "calls": [
     {
-      "id": "example-001",
-      "title": "Example call (placeholder — replace with real data)",
+      "id": "ERC-2027-COG",
+      "title": "ERC Consolidator Grant",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "ERC",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/ERC-2027-COG",
+      "opens": "2026-09-24",
+      "deadline": "2027-01-12",
+      "budget": "",
+      "topics": [
+        "ERC",
+        "frontier research"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13"
+    },
+    {
+      "id": "ERC-2027-POC",
+      "title": "Proof of Concept Grant",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "ERC",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/ERC-2027-POC",
+      "opens": "2026-11-12",
+      "deadline": "2027-03-10",
+      "budget": "",
+      "topics": [
+        "ERC",
+        "proof of concept"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13"
+    },
+    {
+      "id": "HORIZON-MSCA-2027-COFUND-01-01",
+      "title": "MSCA COFUND 2027",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "Horizon Europe MSCA",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-COFUND-01-01",
+      "opens": "2026-12-08",
+      "deadline": "2027-04-06",
+      "budget": "",
+      "topics": [
+        "MSCA",
+        "doctoral",
+        "postdoc"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-13"
+    },
+    {
+      "id": "HORIZON-MSCA-2027-COFUND-02-01",
+      "title": "MSCA Choose Europe for Science 2027",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "Horizon Europe MSCA",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-COFUND-02-01",
+      "opens": "2026-12-08",
+      "deadline": "2027-04-06",
+      "budget": "",
+      "topics": [
+        "MSCA"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-13"
+    },
+    {
+      "id": "HORIZON-MSCA-2027-SE-01-01",
+      "title": "MSCA Staff Exchanges 2027",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "Horizon Europe MSCA",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-SE-01-01",
+      "opens": "2026-12-15",
+      "deadline": "2027-04-13",
+      "budget": "",
+      "topics": [
+        "MSCA",
+        "mobility"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-13"
+    },
+    {
+      "id": "HORIZON-MSCA-2027-PF-01-01",
+      "title": "MSCA Postdoctoral Fellowships 2027",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "Horizon Europe MSCA",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-PF-01-01",
+      "opens": "2027-04-07",
+      "deadline": "2027-09-08",
+      "budget": "",
+      "topics": [
+        "MSCA",
+        "postdoc"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-13"
+    },
+    {
+      "id": "HORIZON-MSCA-2027-DN-01-01",
+      "title": "MSCA Doctoral Networks 2027",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "Horizon Europe MSCA",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-MSCA-2027-DN-01-01",
+      "opens": "2027-05-26",
+      "deadline": "2027-11-23",
+      "budget": "",
+      "topics": [
+        "MSCA",
+        "doctoral"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-13"
+    },
+    {
+      "id": "HORIZON-EIC-2027-PATHFINDEROPEN-two-stage",
+      "title": "EIC Pathfinder Open 2027 (two-stage)",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "EIC Pathfinder",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-EIC-2027-PATHFINDEROPEN-two-stage",
+      "opens": "2026-11-25",
+      "deadline": "2027-02-25",
+      "budget": "",
+      "topics": [
+        "EIC",
+        "deep tech"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Title on the portal is the topic ID only; title written from the topic ID."
+    },
+    {
+      "id": "HORIZON-EIC-2027-STEP",
+      "title": "EIC STEP Scale Up",
+      "funder": "European Commission",
+      "region": "EU",
+      "programme": "EIC Accelerator",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-EIC-2027-STEP",
+      "opens": "2026-11-18",
+      "deadline": "2027-11-24",
+      "budget": "",
+      "topics": [
+        "EIC",
+        "scale-up"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Deadline is the last cut-off date in the API; intermediate cut-offs may exist - check the topic page."
+    },
+    {
+      "id": "vr-2026-rch",
+      "title": "Project grant for international research collaboration within Resilient Cultural Heritage (RCH)",
       "funder": "Vetenskapsrådet",
       "region": "SE",
-      "programme": "Project grant",
-      "url": "https://www.vr.se/",
-      "opens": "2026-12-01",
-      "deadline": "2027-03-15",
+      "programme": "International research collaboration",
+      "url": "https://www.vr.se/english/applying-for-funding/calls/2026-10-15-project-grant-for-international-research-collaboration-within-resilient-cultural-heritage-rch.html",
+      "opens": "2026-11-05",
+      "deadline": "2027-01-18",
       "budget": "",
-      "topics": ["example"],
+      "topics": [
+        "cultural heritage"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Dates from the call page: open call 5 Nov 2026 - 18 Jan 2027."
+    },
+    {
+      "id": "vr-2026-ep-permed",
+      "title": "Project grant for international collaboration within personalised medicine (EP PerMed)",
+      "funder": "Vetenskapsrådet",
+      "region": "SE",
+      "programme": "International research collaboration",
+      "url": "https://www.vr.se/english/applying-for-funding/calls/2026-10-19-project-grant-for-international-collaboration-within-personalised-medicine-ep-permed.html",
+      "opens": "2026-11-04",
+      "deadline": "2027-01-27",
+      "budget": "",
+      "topics": [
+        "personalised medicine"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Dates from the call page: open call 4 Nov 2026 - 27 Jan 2027; consortium outline application to EP PerMed due 20 Jan 2027."
+    },
+    {
+      "id": "vr-2026-research-infrastructure",
+      "title": "Grant for research infrastructure of national interest",
+      "funder": "Vetenskapsrådet",
+      "region": "SE",
+      "programme": "International research collaboration",
+      "url": "https://www.vr.se/english/applying-for-funding/calls/2025-11-11-grant-for-research-infrastructure-of-national-interest.html",
+      "opens": "2026-12-02",
+      "deadline": "2027-02-16",
+      "budget": "",
+      "topics": [
+        "research infrastructure"
+      ],
       "status": "upcoming",
-      "source": "manual",
-      "added": "2026-11-13"
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Application period 2 Dec 2026 - 16 Feb 2027, 14:00. Organisations only. Budget not stated yet."
     }
   ]
 }

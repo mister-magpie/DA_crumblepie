@@ -6,7 +6,8 @@ sources:
   # --- Sweden: government agencies ---
   - name: Vetenskapsrådet (VR)
     region: SE
-    listing: https://www.vr.se/sok-finansiering/utlysningar.html
+    listing: https://www.vr.se/english/applying-for-funding/calls-and-decisions/calls-as-rss-feed.html
+    notes: Old listing URL returned 404. This page lists all calls with links to each call page.
     verify: true
   - name: Vinnova
     region: SE
