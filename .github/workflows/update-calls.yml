@@ -1,0 +1,65 @@
+name: Update funding calls
+
+# Every other Monday at 12:00 Stockholm time.
+# GitHub cron is in UTC and has no "every 2 weeks", so it fires every Monday at
+# 10:00 and 11:00 UTC, and the "gate" job keeps only the run that is 12:00 in
+# Stockholm (handles summer/winter time) in an odd ISO week.
+on:
+  schedule:
+    - cron: "0 10 * * 1"
+    - cron: "0 11 * * 1"
+  workflow_dispatch: # "Run workflow" button: always runs, ignores the gate
+
+concurrency:
+  group: update-calls
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check.outputs.run }}
+    steps:
+      - id: check
+        env:
+          EVENT: ${{ github.event_name }}
+          CRON: ${{ github.event.schedule }}
+        run: |
+          if [ "$EVENT" != "schedule" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          offset=$(TZ=Europe/Stockholm date +%z)   # +0100 in winter, +0200 in summer
+          week=$(TZ=Europe/Stockholm date +%V)
+          if [ "$offset" = "+0100" ]; then want="0 11 * * 1"; else want="0 10 * * 1"; fi
+          if [ "$CRON" = "$want" ] && [ $((10#$week % 2)) -eq 1 ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping: cron '$CRON', Stockholm offset $offset, ISO week $week"
+          fi
+
+  update:
+    needs: gate
+    if: needs.gate.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "funding-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run update agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            You are running in GitHub Actions in a checkout of this repository.
+            Read AGENT.md and follow it exactly. Today is the date reported by `date +%F`.
+          claude_args: >-
+            --allowedTools "Read,Write,Edit,Glob,Grep,WebFetch,WebSearch,Bash(git:*),Bash(python3:*),Bash(date:*),Bash(curl:*),Bash(mkdir:*),Bash(ls:*)"

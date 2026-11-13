@@ -4,7 +4,7 @@ A public, automatically updated list of open and upcoming **research funding cal
 
 - **Website:** https://mister-magpie.github.io/DA_crumblepie/
 - **Data:** [`docs/data/calls.json`](docs/data/calls.json)
-- **How it updates:** a Claude agent runs on a schedule on a maintainer's computer. It follows [`AGENT.md`](AGENT.md): it checks the funders in [`sources.yaml`](sources.yaml), updates `calls.json`, validates it, and pushes to `main`. GitHub Pages then republishes the site.
+- **How it updates:** a Claude agent runs in GitHub Actions every other Monday at 12:00 (Stockholm time). It follows [`AGENT.md`](AGENT.md): it checks the funders in [`sources.yaml`](sources.yaml), updates `calls.json`, validates it, and pushes to `main`. GitHub Pages then republishes the site.
 
 ---
 
@@ -15,8 +15,8 @@ A public, automatically updated list of open and upcoming **research funding cal
 | 0 | Repo set up, README plan, minimal page and data file | ✅ Done |
 | 1 | GitHub Pages live, data schema settled | 🚧 In progress (Pages live) |
 | 2 | Source list and seed data | 🚧 In progress (draft `sources.yaml`) |
-| 3 | Local update agent, run by hand | 🚧 In progress (`AGENT.md` and validator written) |
-| 4 | Scheduled local runs, deduplication, run logs | ⬜ Not started |
+| 3 | Update agent in GitHub Actions, run by hand | 🚧 In progress (workflow written; needs the `CLAUDE_CODE_OAUTH_TOKEN` secret) |
+| 4 | Scheduled runs, deduplication, run logs | 🚧 In progress (schedule set) |
 | 5 | Website polish (filters, calendar/RSS, notifications) | ⬜ Not started |
 
 Last updated: 2026-11-13
@@ -27,9 +27,9 @@ Last updated: 2026-11-13
 
 ```
 ┌───────────────────────────┐ biweekly  ┌──────────────────────────────┐
-│ Scheduled task in the      │ ────────▶ │ Claude agent (local)          │
-│ Claude desktop app on a    │           │  - git pull                   │
-│ maintainer's computer      │           │  - reads AGENT.md,            │
+│ GitHub Actions             │ ────────▶ │ Claude agent                  │
+│ update-calls.yml           │           │ (anthropics/claude-code-action)│
+│ every other Monday 12:00   │           │  - reads AGENT.md,            │
 └───────────────────────────┘           │    sources.yaml               │
                                         │  - checks funder sites / APIs │
                                         │  - merges into calls.json     │
@@ -49,8 +49,8 @@ Last updated: 2026-11-13
 ```
 
 Design choices:
-- **The agent runs locally, not in GitHub Actions.** It uses the maintainer's own Claude account and git login, so the repo needs no API key secret and no CI setup. The catch: a run only happens while the Claude desktop app is open. A run missed while the app is closed happens the next time it opens.
-- **Instructions live in the repo.** `AGENT.md` is the agent's whole job description, and the scheduled task only says "follow AGENT.md". To change what the agent does, edit `AGENT.md` and push. Both of us can do this.
+- **The agent runs in GitHub Actions.** Actions minutes are free for public repos, and the agent signs in with a Claude subscription token (`CLAUDE_CODE_OAUTH_TOKEN`) instead of a paid API key. It doesn't depend on anyone's computer being on.
+- **Instructions live in the repo.** `AGENT.md` is the agent's whole job description, and the workflow only says "follow AGENT.md". To change what the agent does, edit `AGENT.md` and push. Both of us can do this.
 - **Static site, no backend.** `docs/index.html` loads `docs/data/calls.json` and filters it in the browser. Pages serves straight from `/docs` on `main`.
 - **Data in git.** Every update is a commit with a log file, so wrong entries are easy to spot and revert.
 - **Pushes go straight to `main`.** No review step. `AGENT.md` tells the agent to confirm every call on the official page and never to guess, and `logs/` records what changed. If this lets too many errors through, switch to pushing a branch and opening a PR.
@@ -66,6 +66,8 @@ docs/                  # GitHub Pages root
   data/calls.json      # the list of calls (single source of truth)
 scripts/validate.py    # checks calls.json: required fields, dates, duplicate IDs
 logs/                  # one file per agent run: what was checked and changed
+.github/workflows/
+  update-calls.yml     # runs the agent every other Monday, or on demand
 ```
 
 ## Data model (draft)
@@ -108,18 +110,19 @@ The full list, with URLs, is in [`sources.yaml`](sources.yaml). Most URLs are st
 - [ ] Review the source list together: add or remove funders
 - [ ] Remove the placeholder entry (the agent does this on its first real run)
 
-### Phase 3: Local update agent, run by hand
+### Phase 3: Update agent in GitHub Actions, run by hand
 - [x] `AGENT.md`: the instructions for each run
 - [x] `scripts/validate.py`: required fields, date format, duplicate IDs
-- [x] Create the scheduled task in the Claude desktop app (see *Running the agent* below)
-- [ ] Do 2–3 runs by hand ("Run now"), read the logs, and tune `AGENT.md`
+- [x] `.github/workflows/update-calls.yml`
+- [ ] Add the `CLAUDE_CODE_OAUTH_TOKEN` repository secret (see *Running the agent* below)
+- [ ] Do 2–3 runs by hand ("Run workflow"), read the logs, and tune `AGENT.md`
+- [ ] Check that a push by the workflow triggers a Pages rebuild
 - [ ] Add a URL check (HTTP 200) to the validator
 
 ### Phase 4: Scheduled runs and quality
 - [x] Turn on the schedule: every other Monday at 12:00
 - [ ] Better deduplication (fuzzy title matching)
 - [ ] Decide whether to keep pushing to `main` or switch to PRs
-- [ ] Optional: let either of us run the agent, so it doesn't depend on one computer being on
 
 ### Phase 5: Website polish
 - [ ] Filter by funder, topic and deadline range
@@ -129,18 +132,25 @@ The full list, with URLs, is in [`sources.yaml`](sources.yaml). Most URLs are st
 
 ## Running the agent
 
-The agent is a **scheduled task in the Claude desktop app**, "Funding call tracker update" (*Scheduled* in the sidebar), on Luca's Mac.
+The agent is the **"Update funding calls"** workflow ([`.github/workflows/update-calls.yml`](.github/workflows/update-calls.yml)).
 
-- **Schedule:** every other Monday at 12:00 local time. The task fires every Monday, and on even ISO weeks it skips without doing anything. The first run is Monday 2026-11-16 (week 47).
-- **Prompt:** work in `~/DA_crumblepie`, then read `AGENT.md` and follow it exactly.
+- **Schedule:** every other Monday at 12:00 Stockholm time, in odd ISO weeks. The first run is Monday 2026-11-16 (week 47). GitHub cron uses UTC and has no "every 2 weeks", so the workflow fires every Monday at 10:00 and 11:00 UTC. A small `gate` job then keeps only the run that is 12:00 in Stockholm (summer or winter time) in an odd week. All the other runs show as skipped. GitHub often starts scheduled runs a few minutes late.
+- **Run by hand:** *Actions → Update funding calls → Run workflow*. This always runs, whatever the week.
+- **Results:** the agent's summary is on the run's page. Its commit and `logs/YYYY-MM-DD.md` land on `main`.
 
-To start a run by hand, open the task and click **Run now**. To run it without the app:
+**One-time setup (needs a Claude Pro/Max subscription):**
 
-```bash
-cd ~/DA_crumblepie && claude -p "Read AGENT.md and follow it exactly."
-```
+1. On a computer with Claude Code installed, create a long-lived token:
+   ```bash
+   claude setup-token
+   ```
+2. Save it as a repository secret named `CLAUDE_CODE_OAUTH_TOKEN`, either in *Settings → Secrets and variables → Actions → New repository secret*, or:
+   ```bash
+   gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo mister-magpie/DA_crumblepie
+   ```
+   (paste the token when asked).
 
-The machine running it needs: this repo cloned, git push access to GitHub, and Python 3.
+Runs use the subscription's usage limits. Actions minutes are free because the repo is public.
 
 ## Collaborating
 

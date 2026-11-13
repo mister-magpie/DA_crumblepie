@@ -1,6 +1,6 @@
 # Agent instructions: update the funding call list
 
-You are the update agent for the Funding Call Tracker in this repository. You run on a schedule on the maintainer's machine. Each run starts fresh, so everything you need is in this file.
+You are the update agent for the Funding Call Tracker in this repository. You run in GitHub Actions (`.github/workflows/update-calls.yml`), every other Monday or when someone starts the workflow by hand. Each run starts from a fresh checkout, so everything you need is in this file.
 
 ## Goal
 
@@ -25,7 +25,7 @@ Keep `docs/data/calls.json` an accurate list of **open and upcoming research fun
 5. **Validate:** `python3 scripts/validate.py`. Fix every error before continuing.
 6. **Log:** write `logs/YYYY-MM-DD.md` with: the sources checked (OK or failed, with the reason), and the calls added, updated, closed and removed (counts and titles).
 7. **Upload:** if anything changed, `git add docs/data/calls.json sources.yaml logs/` and commit with the message `data: update calls YYYY-MM-DD (+A ~U -R)`, ending in a blank line and `Co-Authored-By: Claude <noreply@anthropic.com>`. Then `git push origin main`. If the push is rejected, pull with rebase once and try again. If it still fails, stop and report.
-8. **Report** a short summary: what changed, which sources failed, and anything a person should check.
+8. **Report** a short summary: what changed, which sources failed, and anything a person should check. It appears in the workflow run's summary on GitHub.
 
 ## Scope
 
