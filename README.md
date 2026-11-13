@@ -4,7 +4,7 @@ A public, automatically updated list of open and upcoming **research funding cal
 
 - **Website:** https://mister-magpie.github.io/DA_crumblepie/
 - **Data:** [`docs/data/calls.json`](docs/data/calls.json)
-- **How it updates:** a scheduled agentic workflow (GitHub Actions + an LLM agent) searches funder websites, pulls out new calls and opens a pull request with the changes.
+- **How it updates:** a Claude agent runs on a schedule on a maintainer's computer. It follows [`AGENT.md`](AGENT.md): it checks the funders in [`sources.yaml`](sources.yaml), updates `calls.json`, validates it, and pushes to `main`. GitHub Pages then republishes the site.
 
 ---
 
@@ -14,9 +14,9 @@ A public, automatically updated list of open and upcoming **research funding cal
 |---|---|---|
 | 0 | Repo set up, README plan, minimal page and data file | ✅ Done |
 | 1 | GitHub Pages live, data schema settled | 🚧 In progress (Pages live) |
-| 2 | Source list and manual seed data | ⬜ Not started |
-| 3 | Agentic scraping workflow (manual trigger) | ⬜ Not started |
-| 4 | Scheduled runs, review flow, deduplication | ⬜ Not started |
+| 2 | Source list and seed data | 🚧 In progress (draft `sources.yaml`) |
+| 3 | Local update agent, run by hand | 🚧 In progress (`AGENT.md` and validator written) |
+| 4 | Scheduled local runs, deduplication, run logs | ⬜ Not started |
 | 5 | Website polish (filters, calendar/RSS, notifications) | ⬜ Not started |
 
 Last updated: 2026-11-13
@@ -26,45 +26,46 @@ Last updated: 2026-11-13
 ## Architecture
 
 ```
-┌──────────────────────┐   cron (weekly)   ┌──────────────────────────┐
-│ GitHub Actions        │ ────────────────▶ │ Agent (Claude Code       │
-│ .github/workflows/    │                   │ action / Agent SDK)      │
-│ update-calls.yml      │                   │  - reads sources.yaml    │
-└──────────────────────┘                   │  - fetches/searches web  │
-                                           │  - extracts calls        │
-                                           │  - merges into JSON      │
-                                           └────────────┬─────────────┘
-                                                        │ opens PR
-                                                        ▼
-                                           ┌──────────────────────────┐
-                                           │ docs/data/calls.json      │
-                                           │ (human review + merge)    │
-                                           └────────────┬─────────────┘
-                                                        │ Pages deploy
-                                                        ▼
-                                           ┌──────────────────────────┐
-                                           │ docs/index.html (static)  │
-                                           └──────────────────────────┘
+┌───────────────────────────┐  weekly   ┌──────────────────────────────┐
+│ Scheduled task in the      │ ────────▶ │ Claude agent (local)          │
+│ Claude desktop app on a    │           │  - git pull                   │
+│ maintainer's computer      │           │  - reads AGENT.md,            │
+└───────────────────────────┘           │    sources.yaml               │
+                                        │  - checks funder sites / APIs │
+                                        │  - merges into calls.json     │
+                                        │  - runs scripts/validate.py   │
+                                        │  - writes logs/YYYY-MM-DD.md  │
+                                        └──────────────┬───────────────┘
+                                                       │ git push origin main
+                                                       ▼
+                                        ┌──────────────────────────────┐
+                                        │ GitHub: docs/data/calls.json  │
+                                        └──────────────┬───────────────┘
+                                                       │ Pages deploy
+                                                       ▼
+                                        ┌──────────────────────────────┐
+                                        │ docs/index.html (static site) │
+                                        └──────────────────────────────┘
 ```
 
 Design choices:
+- **The agent runs locally, not in GitHub Actions.** It uses the maintainer's own Claude account and git login, so the repo needs no API key secret and no CI setup. The catch: a run only happens while the Claude desktop app is open. A run missed while the app is closed happens the next time it opens.
+- **Instructions live in the repo.** `AGENT.md` is the agent's whole job description, and the scheduled task only says "follow AGENT.md". To change what the agent does, edit `AGENT.md` and push. Both of us can do this.
 - **Static site, no backend.** `docs/index.html` loads `docs/data/calls.json` and filters it in the browser. Pages serves straight from `/docs` on `main`.
-- **Data in git.** Every change to the list is a commit, so we get history, diffs and review for free.
-- **Agent writes through PRs, not to `main`.** A person merges each update. This catches hallucinated or wrong calls before they go live.
-- **Structured sources first, open web search second.** Where a funder has an API or a stable listing page, use that. Free-form web search is only for finding new sources.
+- **Data in git.** Every update is a commit with a log file, so wrong entries are easy to spot and revert.
+- **Pushes go straight to `main`.** No review step. `AGENT.md` tells the agent to confirm every call on the official page and never to guess, and `logs/` records what changed. If this lets too many errors through, switch to pushing a branch and opening a PR.
+- **Structured sources first.** Where a funder has an API (the EU Funding & Tenders Portal) or a stable listing page, the agent uses that. Open web search is only for finding new sources.
 
 ## Repository layout
 
 ```
+AGENT.md               # instructions the update agent follows on every run
+sources.yaml           # funders and URLs the agent checks
 docs/                  # GitHub Pages root
   index.html           # the tracker page
   data/calls.json      # the list of calls (single source of truth)
-sources.yaml           # (Phase 2) funders and URLs the agent checks
-schema/call.schema.json# (Phase 1) JSON Schema for one call
-scripts/validate.py    # (Phase 3) schema + dedup + link check
-.github/workflows/
-  update-calls.yml     # (Phase 3) agentic update job
-  validate.yml         # (Phase 3) CI check on PRs touching data
+scripts/validate.py    # checks calls.json: required fields, dates, duplicate IDs
+logs/                  # one file per agent run: what was checked and changed
 ```
 
 ## Data model (draft)
@@ -88,59 +89,37 @@ Each entry in `calls[]`:
 | `added` | date | When it was added to the tracker |
 | `notes` | string | Optional |
 
-## Sources to cover (Phase 2)
+## Sources
 
-**Sweden**
-- Vetenskapsrådet (VR)
-- Vinnova
-- Formas
-- Forte
-- Energimyndigheten (Swedish Energy Agency)
-- Rymdstyrelsen (Swedish National Space Agency)
-- Stiftelsen för strategisk forskning (SSF)
-- Knut och Alice Wallenbergs Stiftelse (KAW)
-- Riksbankens Jubileumsfond (RJ)
-- KK-stiftelsen
-- Mistra
-- Wallenberg AI, Autonomous Systems and Software Program (WASP)
+The full list, with URLs, is in [`sources.yaml`](sources.yaml). Most URLs are starting points marked `verify: true`. The agent confirms or corrects them on its first run.
 
-**EU**
-- EU Funding & Tenders Portal (Horizon Europe, Digital Europe, LIFE, etc.). Has a public search API, so this should be the main EU source.
-- European Research Council (ERC)
-- European Innovation Council (EIC)
-- Eureka / Eurostars
-- Interreg programmes relevant to Sweden
-- COST Actions
+- **Sweden:** VR, Vinnova, Formas, Forte, Energimyndigheten, Rymdstyrelsen, SSF, KAW, RJ, KK-stiftelsen, Mistra, WASP
+- **EU:** Funding & Tenders Portal (via its public search API), ERC, EIC, Eureka/Eurostars, COST
 
 ## Plan
 
 ### Phase 1: Pages and schema
 - [x] Enable GitHub Pages: *Settings → Pages → Deploy from branch → `main` / `docs`*
 - [ ] Add collaborator: *Settings → Collaborators → Add people*
-- [ ] Write `schema/call.schema.json` from the data model above
-- [ ] Agree on the ID convention and the status rules
+- [ ] Agree on the ID convention and the status rules (draft in `AGENT.md`)
 
 ### Phase 2: Sources and seed data
-- [ ] Create `sources.yaml` (name, region, listing URL, API if any, notes)
-- [ ] Add 10–20 real calls by hand to test the page and the schema
-- [ ] Remove the placeholder entry
+- [x] Draft `sources.yaml`
+- [ ] Review the source list together: add or remove funders
+- [ ] Remove the placeholder entry (the agent does this on its first real run)
 
-### Phase 3: Agentic workflow (manual trigger)
-- [ ] `scripts/validate.py`: schema validation, duplicate IDs, dates parse, URLs return 200
-- [ ] `.github/workflows/validate.yml`: run the validator on every PR
-- [ ] `.github/workflows/update-calls.yml` with `workflow_dispatch`:
-  - run the agent (e.g. `anthropics/claude-code-action`) with a prompt that reads `sources.yaml`, checks each source, and adds or updates entries in `calls.json`
-  - for the EU portal, call the API from a script instead of having the agent browse
-  - mark calls past their deadline as `closed`
-  - open a PR with a summary: added / updated / closed
-- [ ] Store the `ANTHROPIC_API_KEY` repository secret
-- [ ] Do a few manual runs and tune the prompt
+### Phase 3: Local update agent, run by hand
+- [x] `AGENT.md`: the instructions for each run
+- [x] `scripts/validate.py`: required fields, date format, duplicate IDs
+- [ ] Create the scheduled task in the Claude desktop app (see *Running the agent* below)
+- [ ] Do 2–3 runs by hand ("Run now"), read the logs, and tune `AGENT.md`
+- [ ] Add a URL check (HTTP 200) to the validator
 
-### Phase 4: Scheduling and quality
-- [ ] Add a `schedule:` cron trigger (e.g. weekly on Monday morning)
-- [ ] Deduplicate by ID and fuzzy title match
-- [ ] Keep a run log (`data/runs/YYYY-MM-DD.md`) of what the agent checked
-- [ ] Watch cost and runtime, and cap pages per run
+### Phase 4: Scheduled runs and quality
+- [ ] Turn on the weekly schedule
+- [ ] Better deduplication (fuzzy title matching)
+- [ ] Decide whether to keep pushing to `main` or switch to PRs
+- [ ] Optional: let either of us run the agent, so it doesn't depend on one computer being on
 
 ### Phase 5: Website polish
 - [ ] Filter by funder, topic and deadline range
@@ -148,10 +127,25 @@ Each entry in `calls[]`:
 - [ ] iCal feed of deadlines and/or RSS of new calls
 - [ ] Optional: email/Slack notification for new calls
 
+## Running the agent
+
+The agent is a **scheduled task in the Claude desktop app** (*Code → Scheduled*). Its prompt is short:
+
+> Work in `~/DA_crumblepie`. Read `AGENT.md` and follow it exactly.
+
+To start a run by hand, open the task and click **Run now**. To run it without the app:
+
+```bash
+cd ~/DA_crumblepie && claude -p "Read AGENT.md and follow it exactly."
+```
+
+The machine running it needs: this repo cloned, git push access to GitHub, and Python 3.
+
 ## Collaborating
 
-- Work on branches and open PRs into `main`. Don't push data changes straight to `main`.
-- Update the **Status** table and tick the plan checkboxes in the same PR as the work.
+- The agent pushes to `main`, so **pull before you edit** (`git pull --rebase`) to avoid conflicts.
+- For bigger changes (the website, `AGENT.md`, new data fields), use a branch and a PR.
+- Update the **Status** table and tick the plan checkboxes in the same commit as the work.
 - Open questions and ideas go in GitHub Issues.
 
 ## Local preview
@@ -165,4 +159,4 @@ Then open http://localhost:8000.
 
 - Which research fields should we focus on, or should we track everything?
 - Track only calls open to Swedish applicants, or all EU calls?
-- Which LLM and budget should the agent use, and who owns the API key?
+- How often should the agent run: weekly, or more often near big deadlines?

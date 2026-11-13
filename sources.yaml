@@ -1,0 +1,80 @@
+# Funders the update agent checks. See AGENT.md.
+# listing: the page that lists the funder's calls. "verify: true" means the URL is a
+# starting point the agent should confirm (and correct here) on its first run.
+
+sources:
+  # --- Sweden: government agencies ---
+  - name: Vetenskapsrådet (VR)
+    region: SE
+    listing: https://www.vr.se/sok-finansiering/utlysningar.html
+    verify: true
+  - name: Vinnova
+    region: SE
+    listing: https://www.vinnova.se/sok-finansiering/
+    verify: true
+  - name: Formas
+    region: SE
+    listing: https://formas.se/
+    verify: true
+  - name: Forte
+    region: SE
+    listing: https://forte.se/
+    verify: true
+  - name: Energimyndigheten (Swedish Energy Agency)
+    region: SE
+    listing: https://www.energimyndigheten.se/
+    verify: true
+  - name: Rymdstyrelsen (Swedish National Space Agency)
+    region: SE
+    listing: https://www.rymdstyrelsen.se/
+    verify: true
+
+  # --- Sweden: foundations and programmes ---
+  - name: Stiftelsen för strategisk forskning (SSF)
+    region: SE
+    listing: https://strategiska.se/
+    verify: true
+  - name: Knut och Alice Wallenbergs Stiftelse (KAW)
+    region: SE
+    listing: https://kaw.wallenberg.org/
+    verify: true
+  - name: Riksbankens Jubileumsfond (RJ)
+    region: SE
+    listing: https://www.rj.se/
+    verify: true
+  - name: KK-stiftelsen
+    region: SE
+    listing: https://www.kks.se/
+    verify: true
+  - name: Mistra
+    region: SE
+    listing: https://www.mistra.org/
+    verify: true
+  - name: WASP
+    region: SE
+    listing: https://wasp-sweden.org/
+    verify: true
+
+  # --- EU ---
+  - name: EU Funding & Tenders Portal (Horizon Europe, Digital Europe, LIFE, ...)
+    region: EU
+    listing: https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-proposals
+    api: https://api.tech.ec.europa.eu/search-api/prod/rest/search?apiKey=SEDIA
+    notes: Public search API used by the portal. Filter on open and forthcoming calls for proposals.
+    verify: true
+  - name: European Research Council (ERC)
+    region: EU
+    listing: https://erc.europa.eu/apply-grant
+    verify: true
+  - name: European Innovation Council (EIC)
+    region: EU
+    listing: https://eic.ec.europa.eu/
+    verify: true
+  - name: Eureka / Eurostars
+    region: EU
+    listing: https://www.eurekanetwork.org/
+    verify: true
+  - name: COST Actions
+    region: EU
+    listing: https://www.cost.eu/
+    verify: true
