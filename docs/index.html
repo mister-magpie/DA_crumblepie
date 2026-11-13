@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funding Call Tracker</title>
+  <style>
+    :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e3e3e3; --accent:#2457c5; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#141414; --fg:#eee; --muted:#999; --line:#333; --accent:#7aa2ff; } }
+    body { margin:0; padding:24px 16px; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, sans-serif; }
+    main { max-width: 960px; margin: 0 auto; }
+    h1 { margin: 0 0 4px; font-size: 1.6rem; }
+    .meta { color: var(--muted); margin-bottom: 16px; }
+    .filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+    input, select { padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); font:inherit; }
+    input { flex: 1 1 220px; }
+    .call { border-top:1px solid var(--line); padding:12px 0; }
+    .call a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .tags { color: var(--muted); font-size: .9rem; }
+    .deadline { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Funding Call Tracker</h1>
+  <div class="meta" id="meta">Loading…</div>
+  <div class="filters">
+    <input id="q" type="search" placeholder="Search title, funder, topic…">
+    <select id="region"><option value="">All regions</option><option value="SE">Sweden</option><option value="EU">EU</option></select>
+    <label><input id="open" type="checkbox" checked style="flex:none"> Hide closed</label>
+  </div>
+  <div id="list"></div>
+</main>
+<script>
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let calls = [];
+  function render() {
+    const q = $('q').value.toLowerCase(), r = $('region').value, hideClosed = $('open').checked;
+    const today = new Date().toISOString().slice(0, 10);
+    const rows = calls
+      .filter(c => !r || c.region === r)
+      .filter(c => !hideClosed || !c.deadline || c.deadline >= today)
+      .filter(c => !q || [c.title, c.funder, c.programme, ...(c.topics || [])].join(' ').toLowerCase().includes(q))
+      .sort((a, b) => (a.deadline || '9999').localeCompare(b.deadline || '9999'));
+    $('list').innerHTML = rows.map(c => `
+      <div class="call">
+        <a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
+        <div>${esc(c.funder)} · ${esc(c.region)}${c.programme ? ' · ' + esc(c.programme) : ''}</div>
+        <div class="deadline">Deadline: ${esc(c.deadline || 'n/a')}${c.opens ? ' · Opens: ' + esc(c.opens) : ''}</div>
+        <div class="tags">${(c.topics || []).map(esc).join(', ')}</div>
+      </div>`).join('') || '<p>No matching calls.</p>';
+  }
+  fetch('data/calls.json').then(r => r.json()).then(d => {
+    calls = d.calls || [];
+    $('meta').textContent = `${calls.length} calls · last updated ${d.updated}`;
+    render();
+  }).catch(() => { $('meta').textContent = 'Could not load data.'; });
+  ['q', 'region', 'open'].forEach(id => $(id).addEventListener('input', render));
+</script>
+</body>
+</html>

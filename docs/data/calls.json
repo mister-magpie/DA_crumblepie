@@ -1,0 +1,20 @@
+{
+  "updated": "2026-11-13",
+  "calls": [
+    {
+      "id": "example-001",
+      "title": "Example call (placeholder — replace with real data)",
+      "funder": "Vetenskapsrådet",
+      "region": "SE",
+      "programme": "Project grant",
+      "url": "https://www.vr.se/",
+      "opens": "2026-12-01",
+      "deadline": "2027-03-15",
+      "budget": "",
+      "topics": ["example"],
+      "status": "upcoming",
+      "source": "manual",
+      "added": "2026-11-13"
+    }
+  ]
+}
