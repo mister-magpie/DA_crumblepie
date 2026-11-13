@@ -26,7 +26,7 @@ Last updated: 2026-11-13
 ## Architecture
 
 ```
-┌───────────────────────────┐  weekly   ┌──────────────────────────────┐
+┌───────────────────────────┐ biweekly  ┌──────────────────────────────┐
 │ Scheduled task in the      │ ────────▶ │ Claude agent (local)          │
 │ Claude desktop app on a    │           │  - git pull                   │
 │ maintainer's computer      │           │  - reads AGENT.md,            │
@@ -111,12 +111,12 @@ The full list, with URLs, is in [`sources.yaml`](sources.yaml). Most URLs are st
 ### Phase 3: Local update agent, run by hand
 - [x] `AGENT.md`: the instructions for each run
 - [x] `scripts/validate.py`: required fields, date format, duplicate IDs
-- [ ] Create the scheduled task in the Claude desktop app (see *Running the agent* below)
+- [x] Create the scheduled task in the Claude desktop app (see *Running the agent* below)
 - [ ] Do 2–3 runs by hand ("Run now"), read the logs, and tune `AGENT.md`
 - [ ] Add a URL check (HTTP 200) to the validator
 
 ### Phase 4: Scheduled runs and quality
-- [ ] Turn on the weekly schedule
+- [x] Turn on the schedule: every other Monday at 12:00
 - [ ] Better deduplication (fuzzy title matching)
 - [ ] Decide whether to keep pushing to `main` or switch to PRs
 - [ ] Optional: let either of us run the agent, so it doesn't depend on one computer being on
@@ -129,9 +129,10 @@ The full list, with URLs, is in [`sources.yaml`](sources.yaml). Most URLs are st
 
 ## Running the agent
 
-The agent is a **scheduled task in the Claude desktop app** (*Code → Scheduled*). Its prompt is short:
+The agent is a **scheduled task in the Claude desktop app**, "Funding call tracker update" (*Scheduled* in the sidebar), on Luca's Mac.
 
-> Work in `~/DA_crumblepie`. Read `AGENT.md` and follow it exactly.
+- **Schedule:** every other Monday at 12:00 local time. The task fires every Monday, and on even ISO weeks it skips without doing anything. The first run is Monday 2026-11-16 (week 47).
+- **Prompt:** work in `~/DA_crumblepie`, then read `AGENT.md` and follow it exactly.
 
 To start a run by hand, open the task and click **Run now**. To run it without the app:
 
@@ -159,4 +160,3 @@ Then open http://localhost:8000.
 
 - Which research fields should we focus on, or should we track everything?
 - Track only calls open to Swedish applicants, or all EU calls?
-- How often should the agent run: weekly, or more often near big deadlines?
