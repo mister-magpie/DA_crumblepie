@@ -2,7 +2,7 @@
 
 A public, automatically updated list of open and upcoming **research funding calls in Sweden and the EU**, published with GitHub Pages.
 
-- **Website:** https://mister-magpie.github.io/DA_crumblepie/ (live once Pages is enabled, see Phase 1)
+- **Website:** https://mister-magpie.github.io/DA_crumblepie/
 - **Data:** [`docs/data/calls.json`](docs/data/calls.json)
 - **How it updates:** a scheduled agentic workflow (GitHub Actions + an LLM agent) searches funder websites, pulls out new calls and opens a pull request with the changes.
 
@@ -13,7 +13,7 @@ A public, automatically updated list of open and upcoming **research funding cal
 | Phase | Description | Status |
 |---|---|---|
 | 0 | Repo set up, README plan, minimal page and data file | ✅ Done |
-| 1 | GitHub Pages live, data schema settled | ⏳ Next |
+| 1 | GitHub Pages live, data schema settled | 🚧 In progress (Pages live) |
 | 2 | Source list and manual seed data | ⬜ Not started |
 | 3 | Agentic scraping workflow (manual trigger) | ⬜ Not started |
 | 4 | Scheduled runs, review flow, deduplication | ⬜ Not started |
@@ -115,7 +115,7 @@ Each entry in `calls[]`:
 ## Plan
 
 ### Phase 1: Pages and schema
-- [ ] Enable GitHub Pages: *Settings → Pages → Deploy from branch → `main` / `docs`*
+- [x] Enable GitHub Pages: *Settings → Pages → Deploy from branch → `main` / `docs`*
 - [ ] Add collaborator: *Settings → Collaborators → Add people*
 - [ ] Write `schema/call.schema.json` from the data model above
 - [ ] Agree on the ID convention and the status rules
