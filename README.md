@@ -15,7 +15,7 @@ A public, automatically updated list of open and upcoming **research funding cal
 | 0 | Repo set up, README plan, minimal page and data file | ✅ Done |
 | 1 | GitHub Pages live, data schema settled | 🚧 In progress (Pages live) |
 | 2 | Source list and seed data | 🚧 In progress (draft `sources.yaml`) |
-| 3 | Update agent in GitHub Actions, run by hand | 🚧 In progress (workflow written; needs the `CLAUDE_CODE_OAUTH_TOKEN` secret) |
+| 3 | Update agent in GitHub Actions, run by hand | 🚧 In progress (first run OK on 2026-11-13: 12 calls; most sources not checked yet) |
 | 4 | Scheduled runs, deduplication, run logs | 🚧 In progress (schedule set) |
 | 5 | Website polish (filters, calendar/RSS, notifications) | ⬜ Not started |
 
@@ -114,9 +114,9 @@ The full list, with URLs, is in [`sources.yaml`](sources.yaml). Most URLs are st
 - [x] `AGENT.md`: the instructions for each run
 - [x] `scripts/validate.py`: required fields, date format, duplicate IDs
 - [x] `.github/workflows/update-calls.yml`
-- [ ] Add the `CLAUDE_CODE_OAUTH_TOKEN` repository secret (see *Running the agent* below)
-- [ ] Do 2–3 runs by hand ("Run workflow"), read the logs, and tune `AGENT.md`
-- [ ] Check that a push by the workflow triggers a Pages rebuild
+- [x] Add the `CLAUDE_CODE_OAUTH_TOKEN` repository secret (see *Running the agent* below)
+- [ ] Do 2–3 runs by hand (1 done) ("Run workflow"), read the logs, and tune `AGENT.md`
+- [x] Check that a push by the workflow triggers a Pages rebuild
 - [ ] Add a URL check (HTTP 200) to the validator
 
 ### Phase 4: Scheduled runs and quality
