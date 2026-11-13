@@ -53,6 +53,16 @@ jobs:
           git config user.name "funding-tracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+      # Catches a badly pasted secret (missing part, spaces) without printing it.
+      - name: Check token format
+        env:
+          T: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          case "$T" in sk-ant-oat01-*) p=ok ;; *) p=WRONG ;; esac
+          ws=$(printf '%s' "$T" | tr -cd '[:space:]' | wc -c)
+          echo "prefix: $p, length: ${#T}, whitespace chars: $ws"
+          [ "$p" = ok ] && [ "$ws" -eq 0 ] || { echo "::error::CLAUDE_CODE_OAUTH_TOKEN looks malformed"; exit 1; }
+
       - name: Run update agent
         id: agent
         uses: anthropics/claude-code-action@v1
