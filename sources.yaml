@@ -15,46 +15,56 @@ sources:
     verify: true
   - name: Formas
     region: SE
-    listing: https://formas.se/
-    verify: true
+    listing: https://formas.se/soka-finansiering/alla-utlysningar.html
+    notes: Front page has no call list. Calls are on "Alla utlysningar" (this URL).
+    verify: false
   - name: Forte
     region: SE
-    listing: https://forte.se/
+    listing: https://forte.se/sok-finansiering/utlysningar?status=Kommande
+    notes: The call list page returned no calls to the agent (probably loaded by JavaScript). Not checked in a browser.
     verify: true
   - name: Energimyndigheten (Swedish Energy Agency)
     region: SE
     listing: https://www.energimyndigheten.se/
-    verify: true
+    notes: Front page lists open calls under "Utlysningar och stöd". Full list at /utlysningar/.
+    verify: false
   - name: Rymdstyrelsen (Swedish National Space Agency)
     region: SE
-    listing: https://www.rymdstyrelsen.se/
-    verify: true
+    listing: https://www.rymdstyrelsen.se/forskning/utlysningar/aktiva-utlysningar/
+    notes: Active research calls list. Most entries show a single date with no label, so they were not added.
+    verify: false
 
   # --- Sweden: foundations and programmes ---
   - name: Stiftelsen för strategisk forskning (SSF)
     region: SE
-    listing: https://strategiska.se/
-    verify: true
+    listing: https://strategiska.se/utlysningar/
+    notes: Open calls list. Lists deadlines with years, but no opening dates.
+    verify: false
   - name: Knut och Alice Wallenbergs Stiftelse (KAW)
     region: SE
     listing: https://kaw.wallenberg.org/
+    notes: /utlysningar returns 404. Calls are on the front page, and the full list is at /anslagsguide/utlysningar (not checked). Dates are shown without years, so no calls were added.
     verify: true
   - name: Riksbankens Jubileumsfond (RJ)
     region: SE
     listing: https://www.rj.se/
+    notes: No call list found in the page content (probably loaded by JavaScript). /utlysningar/ also returned nothing.
     verify: true
   - name: KK-stiftelsen
     region: SE
-    listing: https://www.kks.se/
-    verify: true
+    listing: https://www.kks.se/finansiering/
+    notes: Calls overview with deadlines and years (no opening dates).
+    verify: false
   - name: Mistra
     region: SE
-    listing: https://www.mistra.org/
-    verify: true
+    listing: https://mistra.org/utlysningarna/
+    notes: Calls list. Only completed calls on this page, so nothing open.
+    verify: false
   - name: WASP
     region: SE
-    listing: https://wasp-sweden.org/
-    verify: true
+    listing: https://wasp-sweden.org/calls/
+    notes: Calls list with open calls and deadlines (no opening dates).
+    verify: false
 
   # --- EU ---
   - name: EU Funding & Tenders Portal (Horizon Europe, Digital Europe, LIFE, ...)
@@ -66,16 +76,20 @@ sources:
   - name: European Research Council (ERC)
     region: EU
     listing: https://erc.europa.eu/apply-grant
-    verify: true
+    notes: Lists schemes only, no dates. Calls are in the EU portal (source api).
+    verify: false
   - name: European Innovation Council (EIC)
     region: EU
     listing: https://eic.ec.europa.eu/
+    notes: Front page has no call content in static HTML. EIC topics are in the EU portal (source api).
     verify: true
   - name: Eureka / Eurostars
     region: EU
     listing: https://www.eurekanetwork.org/
+    notes: Returned 403 to the agent's fetch tool. Checked by web search only: no open Eurostars call found on 2026-11-13.
     verify: true
   - name: COST Actions
     region: EU
-    listing: https://www.cost.eu/
-    verify: true
+    listing: https://www.cost.eu/funding/open-call-a-simple-one-step-application-process/
+    notes: The COST Open Call 2026 is closed; OC-2027 dates not yet published.
+    verify: false
