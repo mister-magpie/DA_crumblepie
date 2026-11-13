@@ -54,7 +54,8 @@ Design choices:
 - **Static site, no backend.** `docs/index.html` loads `docs/data/calls.json` and filters it in the browser. Pages serves straight from `/docs` on `main`.
 - **Data in git.** Every update is a commit with a log file, so wrong entries are easy to spot and revert.
 - **Pushes go straight to `main`.** No review step. `AGENT.md` tells the agent to confirm every call on the official page and never to guess, and `logs/` records what changed. If this lets too many errors through, switch to pushing a branch and opening a PR.
-- **Structured sources first.** Where a funder has an API (the EU Funding & Tenders Portal) or a stable listing page, the agent uses that. Open web search is only for finding new sources.
+- **Script for the EU portal, agent for the rest.** `scripts/fetch_eu.py` loads every open and upcoming topic from the EU Funding & Tenders Portal API (about 350 calls) without involving the model. These entries have `"source": "api"`. The agent handles the Swedish funders and the EU sources outside the portal, which have no API.
+- **Cheap model.** The agent runs on Claude Haiku 5.5 (`--model claude-haiku-5-5` in the workflow).
 
 ## Repository layout
 
@@ -65,6 +66,7 @@ docs/                  # GitHub Pages root
   index.html           # the tracker page
   data/calls.json      # the list of calls (single source of truth)
 scripts/validate.py    # checks calls.json: required fields, dates, duplicate IDs
+scripts/fetch_eu.py    # loads all open/upcoming EU portal topics (Horizon Europe, ERC, MSCA, EIC, Digital Europe, LIFE)
 logs/                  # one file per agent run: what was checked and changed
 .github/workflows/
   update-calls.yml     # runs the agent every other Monday, or on demand
@@ -87,7 +89,7 @@ Each entry in `calls[]`:
 | `budget` | string | Free text: total or per-project |
 | `topics` | string[] | Free tags |
 | `status` | `upcoming` \| `open` \| `closed` | |
-| `source` | `manual` \| `agent` | Who added it |
+| `source` | `manual` \| `agent` \| `api` | Who added it (`api` = `scripts/fetch_eu.py`) |
 | `added` | date | When it was added to the tracker |
 | `notes` | string | Optional |
 

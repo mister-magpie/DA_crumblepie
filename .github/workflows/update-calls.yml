@@ -63,6 +63,12 @@ jobs:
           echo "prefix: $p, length: ${#T}, whitespace chars: $ws"
           [ "$p" = ok ] && [ "$ws" -eq 0 ] || { echo "::error::CLAUDE_CODE_OAUTH_TOKEN looks malformed"; exit 1; }
 
+      # Loads all EU Funding & Tenders Portal topics into calls.json (source "api").
+      # The agent then handles the other sources and commits everything together.
+      - name: Fetch EU portal calls
+        continue-on-error: true
+        run: python3 scripts/fetch_eu.py
+
       - name: Run update agent
         id: agent
         uses: anthropics/claude-code-action@v1
@@ -72,7 +78,11 @@ jobs:
           prompt: |
             You are running in GitHub Actions in a checkout of this repository.
             Read AGENT.md and follow it exactly. Today is the date reported by `date +%F`.
+          # Haiku keeps runs cheap. --max-turns is high so it has room to check
+          # every source.
           claude_args: >-
+            --model claude-haiku-5-5
+            --max-turns 300
             --allowedTools "Read,Write,Edit,Glob,Grep,WebFetch,WebSearch,Bash(git:*),Bash(python3:*),Bash(date:*),Bash(curl:*),Bash(mkdir:*),Bash(ls:*)"
 
       # Print only the agent's final result message (not the full transcript), so a
@@ -82,4 +92,15 @@ jobs:
         run: |
           f="${{ steps.agent.outputs.execution_file }}"
           [ -f "$f" ] || f="$RUNNER_TEMP/claude-execution-output.json"
-          [ -f "$f" ] && jq -r '[.[] | select(.type == "result")] | last | "is_error: \(.is_error)\nresult: \(.result)"' "$f" || echo "No execution file found"
+          [ -f "$f" ] && jq -r '[.[] | select(.type == "result")] | last | "is_error: \(.is_error)\nturns: \(.num_turns), minutes: \((.duration_ms // 0) / 60000 | floor)\nresult: \(.result)"' "$f" || echo "No execution file found"
+
+      # If the agent failed or didn't commit, still publish the fresh EU data.
+      - name: Commit EU data if the agent didn't
+        if: always()
+        run: |
+          git checkout -- logs sources.yaml 2>/dev/null || true
+          if git diff --quiet -- docs/data/calls.json; then echo "Nothing left to commit"; exit 0; fi
+          python3 scripts/validate.py || { echo "::error::calls.json invalid, not committing"; exit 1; }
+          git add docs/data/calls.json
+          git commit -m "data: update EU portal calls $(date +%F)"
+          git pull --rebase origin main && git push origin main

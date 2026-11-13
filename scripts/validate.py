@@ -11,7 +11,7 @@ REQUIRED = ["id", "title", "funder", "region", "url", "status", "source", "added
 DATE_FIELDS = ["opens", "deadline", "added"]
 REGIONS = {"SE", "EU"}
 STATUSES = {"upcoming", "open", "closed"}
-SOURCES = {"manual", "agent"}
+SOURCES = {"manual", "agent", "api"}
 
 
 def is_date(s):
