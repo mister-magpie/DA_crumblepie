@@ -7,11 +7,12 @@ sources:
   - name: Vetenskapsrådet (VR)
     region: SE
     listing: https://www.vr.se/english/applying-for-funding/calls-and-decisions/calls-as-rss-feed.html
-    notes: Old listing URL returned 404. This page lists all calls with links to each call page.
-    verify: true
+    notes: Old listing URL returned 404. This page lists all calls with links to each call page. Most entries have no call-page link or dates, so they are not added.
+    verify: false
   - name: Vinnova
     region: SE
     listing: https://www.vinnova.se/sok-finansiering/
+    notes: Pages /sok-finansiering/ and /sok-finansiering/hitta-finansiering/ have no call list in their text (checked 2026-11-16). Calls are found on individual pages.
     verify: true
   - name: Formas
     region: SE
@@ -42,9 +43,9 @@ sources:
     verify: false
   - name: Knut och Alice Wallenbergs Stiftelse (KAW)
     region: SE
-    listing: https://kaw.wallenberg.org/
-    notes: /utlysningar returns 404. Calls are on the front page, and the full list is at /anslagsguide/utlysningar (not checked). Dates are shown without years, so no calls were added.
-    verify: true
+    listing: https://kaw.wallenberg.org/anslagsguide/utlysningar
+    notes: Full call list (/anslagsguide/utlysningar) shows dates with years. /utlysningar returns 404. Checked 2026-11-16.
+    verify: false
   - name: Riksbankens Jubileumsfond (RJ)
     region: SE
     listing: https://www.rj.se/

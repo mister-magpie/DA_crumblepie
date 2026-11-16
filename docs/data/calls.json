@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-16",
   "calls": [
     {
       "id": "vr-2026-rch",
@@ -54,6 +54,361 @@
       "source": "agent",
       "added": "2026-11-13",
       "notes": "Application period 2 Dec 2026 - 16 Feb 2027, 14:00. Organisations only. Budget not stated yet."
+    },
+    {
+      "id": "vinnova-2026-effektiv-produktutveckling-cyberfysiska",
+      "title": "Effektiv produktutveckling av cyberfysiska system, genom avancerad digitalisering",
+      "funder": "Vinnova",
+      "region": "SE",
+      "programme": "Avancerad digitalisering industriell",
+      "url": "https://www.vinnova.se/e/avancerad-digitalisering-industriell-2024-04161/effektiv-produktutveckling-av-2026-01892/",
+      "opens": "2026-10-13",
+      "deadline": "2027-01-19",
+      "budget": "",
+      "topics": [
+        "digitalisation",
+        "AI",
+        "product development"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Dates from the call page: opens 13 Oct 2026, deadline 19 Jan 2027 14:00."
+    },
+    {
+      "id": "energimyndigheten-2026-verifiering-innovationer-med-kund",
+      "title": "Verifiering av innovationer med kund",
+      "funder": "Energimyndigheten",
+      "region": "SE",
+      "programme": "Energy innovation",
+      "url": "https://www.energimyndigheten.se/utlysningar/verifiering-av-innovationer-med-kund/",
+      "opens": "",
+      "deadline": "2026-12-08",
+      "budget": "",
+      "topics": [
+        "energy",
+        "innovation"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not published on the call page. Deadline 8 Dec 2026 23:59."
+    },
+    {
+      "id": "energimyndigheten-2026-konceptutveckling-affarsfokus",
+      "title": "Konceptutveckling av innovationer med affärsfokus",
+      "funder": "Energimyndigheten",
+      "region": "SE",
+      "programme": "Energy innovation",
+      "url": "https://www.energimyndigheten.se/utlysningar/konceptutveckling-av-innovationer-med-affarsfokus/",
+      "opens": "",
+      "deadline": "2026-12-08",
+      "budget": "",
+      "topics": [
+        "energy",
+        "innovation"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not published on the call page. Deadline 8 Dec 2026 23:59."
+    },
+    {
+      "id": "ssf-2027-eu-application-support",
+      "title": "Sök stöd för att skriva en EU-ansökan för 2027!",
+      "funder": "Stiftelsen för strategisk forskning (SSF)",
+      "region": "SE",
+      "programme": "EU application support",
+      "url": "https://strategiska.se/utlysning/sok-stod-for-att-skriva-en-eu-ansokan-for-2027/",
+      "opens": "",
+      "deadline": "2027-03-02",
+      "budget": "",
+      "topics": [
+        "EU",
+        "application support"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the SSF listing. Deadline 2 Mar 2027 14:00 from the listing."
+    },
+    {
+      "id": "ssf-2027-fiber-optic-marine-measurement-centre",
+      "title": "Sök 70 miljoner till forskningscentrum för fiberoptisk marin mätteknik!",
+      "funder": "Stiftelsen för strategisk forskning (SSF)",
+      "region": "SE",
+      "programme": "Research centre",
+      "url": "https://strategiska.se/utlysning/sok-70-miljoner-till-forskningscentrum-for-fiberoptisk-marin-matteknik/",
+      "opens": "",
+      "deadline": "2027-03-09",
+      "budget": "",
+      "topics": [
+        "marine measurement",
+        "fibre optics"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the SSF listing. Deadline 9 Mar 2027 14:00 from the listing."
+    },
+    {
+      "id": "ssf-2026-postdoc-japan",
+      "title": "Sök postdoc i Japan!",
+      "funder": "Stiftelsen för strategisk forskning (SSF)",
+      "region": "SE",
+      "programme": "Postdoc in Japan",
+      "url": "https://strategiska.se/utlysning/sok-postdoc-i-japan/",
+      "opens": "",
+      "deadline": "2026-11-30",
+      "budget": "",
+      "topics": [
+        "postdoc",
+        "Japan"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the SSF listing. Deadline 30 Nov 2026 00:00 from the listing."
+    },
+    {
+      "id": "ssf-2026-adjunct-professor-lecturer",
+      "title": "Sök SSF Adjungerad professor eller adjungerad lektor!",
+      "funder": "Stiftelsen för strategisk forskning (SSF)",
+      "region": "SE",
+      "programme": "Adjunct professor / lecturer",
+      "url": "https://strategiska.se/utlysning/sok-ssf-adjungerad-professor-eller-adjungerad-lektor-2/",
+      "opens": "",
+      "deadline": "2026-12-01",
+      "budget": "",
+      "topics": [
+        "adjunct professor",
+        "adjunct lecturer"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the SSF listing. Deadline 1 Dec 2026 14:00 from the listing."
+    },
+    {
+      "id": "wasp-2026-international-postdoctoral-scholarships",
+      "title": "WASP International Postdoctoral Scholarships",
+      "funder": "WASP",
+      "region": "SE",
+      "programme": "WASP International Postdoctoral Scholarships",
+      "url": "https://wasp-sweden.org/calls/wasp-international-postdoctoral-scholarships-7/",
+      "opens": "",
+      "deadline": "2026-11-16",
+      "budget": "",
+      "topics": [
+        "AI",
+        "postdoc"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the WASP listing. Application deadline 16 Nov 2026 from the listing."
+    },
+    {
+      "id": "wasp-2026-strategic-workshop",
+      "title": "Call for Proposals: Strategic Workshop within the WASP & WASP-HS Collaboration",
+      "funder": "WASP",
+      "region": "SE",
+      "programme": "WASP-HS collaboration",
+      "url": "https://wasp-sweden.org/calls/call-for-proposals-strategic-workshop-within-the-wasp-wasp-hs-collaboration/",
+      "opens": "",
+      "deadline": "2026-11-23",
+      "budget": "",
+      "topics": [
+        "AI",
+        "workshop"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the WASP listing. Application deadline 23 Nov 2026 from the listing."
+    },
+    {
+      "id": "wasp-2026-thematic-summer-school",
+      "title": "Call for Proposals: WASP Thematic Summer School",
+      "funder": "WASP",
+      "region": "SE",
+      "programme": "WASP Thematic Summer School",
+      "url": "https://wasp-sweden.org/calls/call-for-proposals-wasp-thematic-summer-school/",
+      "opens": "",
+      "deadline": "2026-11-25",
+      "budget": "",
+      "topics": [
+        "AI",
+        "summer school"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the WASP listing. Application deadline 25 Nov 2026 from the listing."
+    },
+    {
+      "id": "wasp-2026-wallenberg-ntu-presidential-postdoc",
+      "title": "Wallenberg-NTU Presidential Postdoctoral Fellowship",
+      "funder": "WASP",
+      "region": "SE",
+      "programme": "Wallenberg-NTU Presidential Postdoctoral Fellowship",
+      "url": "https://wasp-sweden.org/calls/wallenberg-ntu-presidential-postdoctoral-fellowship-4/",
+      "opens": "",
+      "deadline": "2026-12-31",
+      "budget": "",
+      "topics": [
+        "AI",
+        "postdoc"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the WASP listing. Application deadline 31 Dec 2026 from the listing."
+    },
+    {
+      "id": "kks-2026-medfinansiering-msca-cofund",
+      "title": "Medfinansiering för MSCA COFUND doktorandprogram",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Co-funding for MSCA COFUND",
+      "url": "https://www.kks.se/program/medfinansiering-for-msca-cofund-doktorandprogram/",
+      "opens": "2026-09-10",
+      "deadline": "2026-11-16",
+      "budget": "",
+      "topics": [
+        "doctoral programme",
+        "MSCA COFUND"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Application period 10 Sep - 16 Nov 2026 per the call page (no time of day shown)."
+    },
+    {
+      "id": "kks-2026-bitradande-lektorat",
+      "title": "Biträdande lektorat",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Biträdande lektorat",
+      "url": "https://www.kks.se/program/bitradande-lektorat/",
+      "opens": "",
+      "deadline": "2026-11-24",
+      "budget": "",
+      "topics": [
+        "senior lecturer position"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 24 Nov 2026 15:00 from the listing."
+    },
+    {
+      "id": "kks-2026-tidig-akademisk-karriar",
+      "title": "Tidig akademisk karriär",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Tidig akademisk karriär",
+      "url": "https://www.kks.se/program/tidig-akademisk-karriar/",
+      "opens": "",
+      "deadline": "2026-11-25",
+      "budget": "",
+      "topics": [
+        "early academic career"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 25 Nov 2026 15:00 from the listing."
+    },
+    {
+      "id": "kks-2026-forskningsprojekt",
+      "title": "Forskningsprojekt",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Forskningsprojekt",
+      "url": "https://www.kks.se/program/forskningsprojekt/",
+      "opens": "",
+      "deadline": "2026-11-26",
+      "budget": "",
+      "topics": [
+        "research projects"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 26 Nov 2026 15:00 from the listing."
+    },
+    {
+      "id": "kks-2027-synergiprojekt",
+      "title": "Synergiprojekt",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Synergiprojekt",
+      "url": "https://www.kks.se/program/synergi/",
+      "opens": "",
+      "deadline": "2027-01-27",
+      "budget": "",
+      "topics": [
+        "synergy projects"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 27 Jan 2027 15:00 from the listing."
+    },
+    {
+      "id": "kks-2027-kompetensforstarkning",
+      "title": "Kompetensförstärkning",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Kompetensförstärkning",
+      "url": "https://www.kks.se/program/kompetensforstarkning/",
+      "opens": "",
+      "deadline": "2027-01-28",
+      "budget": "",
+      "topics": [
+        "competence reinforcement"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 28 Jan 2027 15:00 from the listing."
+    },
+    {
+      "id": "kks-2027-forskningsprofiler",
+      "title": "Forskningsprofiler",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Forskningsprofiler",
+      "url": "https://www.kks.se/program/forskningsprofiler/",
+      "opens": "",
+      "deadline": "2027-02-02",
+      "budget": "",
+      "topics": [
+        "research profiles"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 2 Feb 2027 15:00 from the listing."
+    },
+    {
+      "id": "kks-2027-foretagsforskarskolor",
+      "title": "Företagsforskarskolor",
+      "funder": "KK-stiftelsen",
+      "region": "SE",
+      "programme": "Företagsforskarskolor",
+      "url": "https://www.kks.se/program/foretagsforskarskolor/",
+      "opens": "",
+      "deadline": "2027-02-09",
+      "budget": "",
+      "topics": [
+        "industrial research schools"
+      ],
+      "status": "open",
+      "source": "agent",
+      "added": "2026-11-13",
+      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 9 Feb 2027 15:00 from the listing."
     },
     {
       "id": "HORIZON-JU-EUROHPC-2026-NAPT-11-01",
@@ -6272,359 +6627,248 @@
       "added": "2026-11-13"
     },
     {
-      "id": "vinnova-2026-effektiv-produktutveckling-cyberfysiska",
-      "title": "Effektiv produktutveckling av cyberfysiska system, genom avancerad digitalisering",
-      "funder": "Vinnova",
-      "region": "SE",
-      "programme": "Avancerad digitalisering industriell",
-      "url": "https://www.vinnova.se/e/avancerad-digitalisering-industriell-2024-04161/effektiv-produktutveckling-av-2026-01892/",
-      "opens": "2026-10-13",
-      "deadline": "2027-01-19",
-      "budget": "",
-      "topics": [
-        "digitalisation",
-        "AI",
-        "product development"
-      ],
-      "status": "open",
-      "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Dates from the call page: opens 13 Oct 2026, deadline 19 Jan 2027 14:00."
-    },
-    {
-      "id": "energimyndigheten-2026-verifiering-innovationer-med-kund",
-      "title": "Verifiering av innovationer med kund",
+      "id": "energimyndigheten-2026-driving-urban-transitions-5",
+      "title": "Driving urban transitions: hållbar urban omställning inom europeiskt partnerskap",
       "funder": "Energimyndigheten",
       "region": "SE",
-      "programme": "Energy innovation",
-      "url": "https://www.energimyndigheten.se/utlysningar/verifiering-av-innovationer-med-kund/",
-      "opens": "",
-      "deadline": "2026-12-08",
-      "budget": "",
+      "programme": "Driving Urban Transitions partnership, call 5 (Horizon Europe co-funded)",
+      "url": "https://www.energimyndigheten.se/utlysningar/driving-urban-transitions-hallbar-urban-omstallning-inom-europeiskt-partnerskap/",
+      "opens": "2026-09-01",
+      "deadline": "2026-11-17",
+      "budget": "Cirka 53 miljoner kronor (total)",
       "topics": [
-        "energy",
-        "innovation"
+        "urban transitions",
+        "sustainability"
       ],
       "status": "open",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not published on the call page. Deadline 8 Dec 2026 23:59."
+      "added": "2026-11-16",
+      "notes": "Step 1 deadline 17 Nov 2026 13:00 CET; full application due 15 Apr 2027 13:00 CET. Requires at least 3 partners from 3 countries."
     },
     {
-      "id": "energimyndigheten-2026-konceptutveckling-affarsfokus",
-      "title": "Konceptutveckling av innovationer med affärsfokus",
+      "id": "energimyndigheten-2026-effektiv-energianvandning-bebyggelsen",
+      "title": "Effektiv energianvändning i bebyggelsen för ett hållbart energisystem",
       "funder": "Energimyndigheten",
       "region": "SE",
-      "programme": "Energy innovation",
-      "url": "https://www.energimyndigheten.se/utlysningar/konceptutveckling-av-innovationer-med-affarsfokus/",
+      "programme": "Energy research and innovation",
+      "url": "https://www.energimyndigheten.se/utlysningar/effektiv-energianvandning-i-bebyggelsen-for-ett-hallbart-energisystem/",
       "opens": "",
-      "deadline": "2026-12-08",
-      "budget": "",
+      "deadline": "2026-11-18",
+      "budget": "Cirka 100 miljoner kronor",
       "topics": [
-        "energy",
-        "innovation"
+        "energy efficiency",
+        "buildings"
       ],
       "status": "open",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not published on the call page. Deadline 8 Dec 2026 23:59."
+      "added": "2026-11-16",
+      "notes": "Opening date not on the call page. Deadline 18 Nov 2026 23:59. Companies, public bodies, universities and research institutes may apply."
     },
     {
-      "id": "ssf-2027-eu-application-support",
-      "title": "Sök stöd för att skriva en EU-ansökan för 2027!",
-      "funder": "Stiftelsen för strategisk forskning (SSF)",
+      "id": "energimyndigheten-2026-forestpathways",
+      "title": "FORESTPathways – internationell utlysning för skogssektorn",
+      "funder": "Energimyndigheten",
       "region": "SE",
-      "programme": "EU application support",
-      "url": "https://strategiska.se/utlysning/sok-stod-for-att-skriva-en-eu-ansokan-for-2027/",
+      "programme": "FORESTPathways (joint international call, with Formas and Vinnova)",
+      "url": "https://www.energimyndigheten.se/utlysningar/forestpathways--internationell-utlysning-for-skogssektorn/",
       "opens": "",
-      "deadline": "2027-03-02",
-      "budget": "",
+      "deadline": "2026-12-02",
+      "budget": "5,2 miljoner euro combined; Swedish applicants up to 300 000 EUR (400 000 EUR if Swedish-coordinated)",
       "topics": [
-        "EU",
-        "application support"
+        "forest sector",
+        "international research"
       ],
       "status": "open",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the SSF listing. Deadline 2 Mar 2027 14:00 from the listing."
+      "added": "2026-11-16",
+      "notes": "Call page says the first call opens in autumn 2026 (no exact date). Deadline 2 Dec 2026 13:00. Needs at least 3 partners from 3 countries."
     },
     {
-      "id": "ssf-2027-fiber-optic-marine-measurement-centre",
-      "title": "Sök 70 miljoner till forskningscentrum för fiberoptisk marin mätteknik!",
-      "funder": "Stiftelsen för strategisk forskning (SSF)",
+      "id": "kaw-2026-wallenberg-ntu-postdoctoral-fellowships",
+      "title": "The Wallenberg Foundation Postdoctoral Fellowships at Nanyang Technological University Singapore",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Research centre",
-      "url": "https://strategiska.se/utlysning/sok-70-miljoner-till-forskningscentrum-for-fiberoptisk-marin-matteknik/",
-      "opens": "",
-      "deadline": "2027-03-09",
+      "programme": "Postdoctoral fellowships abroad",
+      "url": "https://kaw.wallenberg.org/utlysningar/wallenberg-foundation-postdoctoral-fellowships-nanyang-technological-university",
+      "opens": "2026-10-16",
+      "deadline": "2026-11-17",
       "budget": "",
       "topics": [
-        "marine measurement",
-        "fibre optics"
-      ],
-      "status": "open",
-      "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the SSF listing. Deadline 9 Mar 2027 14:00 from the listing."
-    },
-    {
-      "id": "ssf-2026-postdoc-japan",
-      "title": "Sök postdoc i Japan!",
-      "funder": "Stiftelsen för strategisk forskning (SSF)",
-      "region": "SE",
-      "programme": "Postdoc in Japan",
-      "url": "https://strategiska.se/utlysning/sok-postdoc-i-japan/",
-      "opens": "",
-      "deadline": "2026-11-30",
-      "budget": "",
-      "topics": [
-        "postdoc",
-        "Japan"
-      ],
-      "status": "open",
-      "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the SSF listing. Deadline 30 Nov 2026 00:00 from the listing."
-    },
-    {
-      "id": "ssf-2026-adjunct-professor-lecturer",
-      "title": "Sök SSF Adjungerad professor eller adjungerad lektor!",
-      "funder": "Stiftelsen för strategisk forskning (SSF)",
-      "region": "SE",
-      "programme": "Adjunct professor / lecturer",
-      "url": "https://strategiska.se/utlysning/sok-ssf-adjungerad-professor-eller-adjungerad-lektor-2/",
-      "opens": "",
-      "deadline": "2026-12-01",
-      "budget": "",
-      "topics": [
-        "adjunct professor",
-        "adjunct lecturer"
-      ],
-      "status": "open",
-      "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the SSF listing. Deadline 1 Dec 2026 14:00 from the listing."
-    },
-    {
-      "id": "wasp-2026-international-postdoctoral-scholarships",
-      "title": "WASP International Postdoctoral Scholarships",
-      "funder": "WASP",
-      "region": "SE",
-      "programme": "WASP International Postdoctoral Scholarships",
-      "url": "https://wasp-sweden.org/calls/wasp-international-postdoctoral-scholarships-7/",
-      "opens": "",
-      "deadline": "2026-11-16",
-      "budget": "",
-      "topics": [
-        "AI",
         "postdoc"
       ],
       "status": "open",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the WASP listing. Application deadline 16 Nov 2026 from the listing."
+      "added": "2026-11-16",
+      "notes": "Call page: application period starts 16 Oct 2026; last day 17 Nov 2026 (13:00 shown)."
     },
     {
-      "id": "wasp-2026-strategic-workshop",
-      "title": "Call for Proposals: Strategic Workshop within the WASP & WASP-HS Collaboration",
-      "funder": "WASP",
+      "id": "kaw-2026-wallenberg-mit-broad-postdoctoral-scholarship",
+      "title": "The Wallenberg Foundation Scholarship Program for Postdoctoral studies at Massachusetts Institute of Technology and Broad Institute",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "WASP-HS collaboration",
-      "url": "https://wasp-sweden.org/calls/call-for-proposals-strategic-workshop-within-the-wasp-wasp-hs-collaboration/",
-      "opens": "",
-      "deadline": "2026-11-23",
+      "programme": "Postdoctoral scholarships abroad",
+      "url": "https://kaw.wallenberg.org/utlysningar/wallenberg-foundation-scholarship-program-postdoctoral-studies-massachusetts-institute",
+      "opens": "2026-10-16",
+      "deadline": "2026-11-17",
       "budget": "",
       "topics": [
-        "AI",
-        "workshop"
-      ],
-      "status": "open",
-      "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the WASP listing. Application deadline 23 Nov 2026 from the listing."
-    },
-    {
-      "id": "wasp-2026-thematic-summer-school",
-      "title": "Call for Proposals: WASP Thematic Summer School",
-      "funder": "WASP",
-      "region": "SE",
-      "programme": "WASP Thematic Summer School",
-      "url": "https://wasp-sweden.org/calls/call-for-proposals-wasp-thematic-summer-school/",
-      "opens": "",
-      "deadline": "2026-11-25",
-      "budget": "",
-      "topics": [
-        "AI",
-        "summer school"
-      ],
-      "status": "open",
-      "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the WASP listing. Application deadline 25 Nov 2026 from the listing."
-    },
-    {
-      "id": "wasp-2026-wallenberg-ntu-presidential-postdoc",
-      "title": "Wallenberg-NTU Presidential Postdoctoral Fellowship",
-      "funder": "WASP",
-      "region": "SE",
-      "programme": "Wallenberg-NTU Presidential Postdoctoral Fellowship",
-      "url": "https://wasp-sweden.org/calls/wallenberg-ntu-presidential-postdoctoral-fellowship-4/",
-      "opens": "",
-      "deadline": "2026-12-31",
-      "budget": "",
-      "topics": [
-        "AI",
         "postdoc"
       ],
       "status": "open",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the WASP listing. Application deadline 31 Dec 2026 from the listing."
+      "added": "2026-11-16",
+      "notes": "Call page: application period starts 16 Oct 2026; last day 17 Nov 2026 (13:00 shown)."
     },
     {
-      "id": "kks-2026-medfinansiering-msca-cofund",
-      "title": "Medfinansiering för MSCA COFUND doktorandprogram",
-      "funder": "KK-stiftelsen",
+      "id": "kaw-2026-wallenberg-bienenstock-stanford-postdoctoral",
+      "title": "The Wallenberg – Bienenstock Postdoctoral Fellowship Program at Stanford, USA",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Co-funding for MSCA COFUND",
-      "url": "https://www.kks.se/program/medfinansiering-for-msca-cofund-doktorandprogram/",
-      "opens": "",
-      "deadline": "2026-11-16",
+      "programme": "Postdoctoral fellowships abroad",
+      "url": "https://kaw.wallenberg.org/utlysningar/wallenberg-bienenstock-postdoctoral-fellowship-program-stanford-usa",
+      "opens": "2026-10-16",
+      "deadline": "2026-11-17",
       "budget": "",
       "topics": [
-        "doctoral programme",
-        "MSCA COFUND"
+        "postdoc"
       ],
       "status": "open",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 16 Nov 2026 15:00 from the listing."
+      "added": "2026-11-16",
+      "notes": "Call page: application period starts 16 Oct 2026; last day 17 Nov 2026 (13:00 shown)."
     },
     {
-      "id": "kks-2026-bitradande-lektorat",
-      "title": "Biträdande lektorat",
-      "funder": "KK-stiftelsen",
+      "id": "kaw-2026-wallenberg-foundations-ai-acceleration-grant",
+      "title": "Wallenberg Foundations AI Acceleration Grant",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Biträdande lektorat",
-      "url": "https://www.kks.se/program/bitradande-lektorat/",
-      "opens": "",
-      "deadline": "2026-11-24",
+      "programme": "AI Acceleration Grant",
+      "url": "https://kaw.wallenberg.org/utlysningar/wallenberg-foundations-ai-acceleration-grant",
+      "opens": "2026-11-20",
+      "deadline": "2026-12-20",
       "budget": "",
       "topics": [
-        "senior lecturer position"
+        "AI"
       ],
-      "status": "open",
+      "status": "upcoming",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 24 Nov 2026 15:00 from the listing."
+      "added": "2026-11-16",
+      "notes": "Opening date shown as 20 November; year taken from the 20 Dec 2026 deadline on the same page."
     },
     {
-      "id": "kks-2026-tidig-akademisk-karriar",
-      "title": "Tidig akademisk karriär",
-      "funder": "KK-stiftelsen",
+      "id": "kaw-2027-proof-of-concept-life-science",
+      "title": "Proof of Concept-anslag inom Life Science",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Tidig akademisk karriär",
-      "url": "https://www.kks.se/program/tidig-akademisk-karriar/",
-      "opens": "",
-      "deadline": "2026-11-25",
+      "programme": "Proof of Concept",
+      "url": "https://kaw.wallenberg.org/utlysningar/proof-concept-anslag-inom-life-science",
+      "opens": "2027-01-07",
+      "deadline": "2027-02-05",
       "budget": "",
       "topics": [
-        "early academic career"
+        "life science",
+        "proof of concept"
       ],
-      "status": "open",
+      "status": "upcoming",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 25 Nov 2026 15:00 from the listing."
+      "added": "2026-11-16",
+      "notes": ""
     },
     {
-      "id": "kks-2026-forskningsprojekt",
-      "title": "Forskningsprojekt",
-      "funder": "KK-stiftelsen",
+      "id": "kaw-2027-proof-of-concept-ai-quantum-ict",
+      "title": "Proof of Concept-anslag inom AI, kvantteknik eller IKT",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Forskningsprojekt",
-      "url": "https://www.kks.se/program/forskningsprojekt/",
-      "opens": "",
-      "deadline": "2026-11-26",
+      "programme": "Proof of Concept",
+      "url": "https://kaw.wallenberg.org/utlysningar/proof-concept-anslag-inom-ai-kvantteknik-eller-ikt",
+      "opens": "2027-01-15",
+      "deadline": "2027-02-12",
+      "budget": "",
+      "topics": [
+        "AI",
+        "quantum",
+        "ICT",
+        "proof of concept"
+      ],
+      "status": "upcoming",
+      "source": "agent",
+      "added": "2026-11-16",
+      "notes": ""
+    },
+    {
+      "id": "kaw-2028-forskningsprojekt-hog-vetenskaplig-potential",
+      "title": "2028: Forskningsprojekt av hög vetenskaplig potential",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
+      "region": "SE",
+      "programme": "Research projects",
+      "url": "https://kaw.wallenberg.org/utlysningar/2028-forskningsprojekt-av-hog-vetenskaplig-potential",
+      "opens": "2028-01-10",
+      "deadline": "2028-02-04",
       "budget": "",
       "topics": [
         "research projects"
       ],
-      "status": "open",
+      "status": "upcoming",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 26 Nov 2026 15:00 from the listing."
+      "added": "2026-11-16",
+      "notes": ""
     },
     {
-      "id": "kks-2027-synergiprojekt",
-      "title": "Synergiprojekt",
-      "funder": "KK-stiftelsen",
+      "id": "kaw-2028-wallenberg-academy-fellows-extension-nomination",
+      "title": "2028: Nominering till Wallenberg Academy Fellows förlängning",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Synergiprojekt",
-      "url": "https://www.kks.se/program/synergi/",
-      "opens": "",
-      "deadline": "2027-01-27",
+      "programme": "Wallenberg Academy Fellows",
+      "url": "https://kaw.wallenberg.org/utlysningar/2028-nominering-till-wallenberg-academy-fellows-forlangning",
+      "opens": "2028-01-17",
+      "deadline": "2028-02-07",
       "budget": "",
       "topics": [
-        "synergy projects"
+        "nomination",
+        "Wallenberg Academy Fellows"
       ],
-      "status": "open",
+      "status": "upcoming",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 27 Jan 2027 15:00 from the listing."
+      "added": "2026-11-16",
+      "notes": "Nomination by Swedish host organisations."
     },
     {
-      "id": "kks-2027-kompetensforstarkning",
-      "title": "Kompetensförstärkning",
-      "funder": "KK-stiftelsen",
+      "id": "kaw-2028-wallenberg-academy-fellows-nomination",
+      "title": "2028: Nominering till Wallenberg Academy Fellows",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Kompetensförstärkning",
-      "url": "https://www.kks.se/program/kompetensforstarkning/",
-      "opens": "",
-      "deadline": "2027-01-28",
+      "programme": "Wallenberg Academy Fellows",
+      "url": "https://kaw.wallenberg.org/utlysningar/2028-nominering-till-wallenberg-academy-fellows",
+      "opens": "2028-08-14",
+      "deadline": "2028-09-15",
       "budget": "",
       "topics": [
-        "competence reinforcement"
+        "nomination",
+        "Wallenberg Academy Fellows"
       ],
-      "status": "open",
+      "status": "upcoming",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 28 Jan 2027 15:00 from the listing."
+      "added": "2026-11-16",
+      "notes": "Nomination by Swedish host organisations."
     },
     {
-      "id": "kks-2027-forskningsprofiler",
-      "title": "Forskningsprofiler",
-      "funder": "KK-stiftelsen",
+      "id": "kaw-2030-wallenberg-scholars-nomination",
+      "title": "2030: Nominering till Wallenberg Scholars",
+      "funder": "Knut och Alice Wallenbergs Stiftelse (KAW)",
       "region": "SE",
-      "programme": "Forskningsprofiler",
-      "url": "https://www.kks.se/program/forskningsprofiler/",
-      "opens": "",
-      "deadline": "2027-02-02",
+      "programme": "Wallenberg Scholars",
+      "url": "https://kaw.wallenberg.org/utlysningar/2030-nominering-till-wallenberg-scholars",
+      "opens": "2030-01-14",
+      "deadline": "2030-02-14",
       "budget": "",
       "topics": [
-        "research profiles"
+        "nomination",
+        "Wallenberg Scholars"
       ],
-      "status": "open",
+      "status": "upcoming",
       "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 2 Feb 2027 15:00 from the listing."
-    },
-    {
-      "id": "kks-2027-foretagsforskarskolor",
-      "title": "Företagsforskarskolor",
-      "funder": "KK-stiftelsen",
-      "region": "SE",
-      "programme": "Företagsforskarskolor",
-      "url": "https://www.kks.se/program/foretagsforskarskolor/",
-      "opens": "",
-      "deadline": "2027-02-09",
-      "budget": "",
-      "topics": [
-        "industrial research schools"
-      ],
-      "status": "open",
-      "source": "agent",
-      "added": "2026-11-13",
-      "notes": "Opening date not shown on the KK-stiftelsen listing. Deadline 9 Feb 2027 15:00 from the listing."
+      "added": "2026-11-16",
+      "notes": "Nomination by Swedish host organisations."
     }
   ]
 }
